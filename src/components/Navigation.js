@@ -5,7 +5,7 @@ const Navigation = () => {
 	return (
 		<Navbar collapseOnSelect expand="sm">
 			<Navbar.Brand href="/">
-				<strong>Varshu's Art</strong>
+				<strong>Benjamin's Gallery</strong>
 			</Navbar.Brand>
 
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
