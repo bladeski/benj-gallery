@@ -11,7 +11,7 @@ imagemin([jpgImages], {
     destination: outputFolder,
     plugins: [
         imageminMozjpeg({
-            quality: 60,
+            quality: 30,
         }),
     ],
 });
@@ -20,7 +20,7 @@ imagemin([pngImages], {
     destination: outputFolder,
     plugins: [
         pngToJpeg({
-            quality: 60,
+            quality: 30,
         }),
     ],
 }).then((files) => {
@@ -40,7 +40,7 @@ imagemin([jpgImages, pngImages], {
     destination: outputFolder,
     plugins: [
         webp({
-            quality: 60,
+            quality: 30,
         }),
     ],
 });
