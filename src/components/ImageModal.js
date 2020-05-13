@@ -4,7 +4,7 @@ import { Modal } from 'react-bootstrap';
 const ImageModal = (props) => {
     return (
         props.image && (
-            <Modal show={props.show} onHide={props.Close} centered>
+            <Modal className="image-modal" show={props.show} onHide={props.Close} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>{props.image.name}</Modal.Title>
                 </Modal.Header>
