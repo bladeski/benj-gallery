@@ -2,17 +2,15 @@ $bg-clr: aliceblue;
 $btn-clr: #b3d7ff;
 $yellow: #e0be04;
 
-body {
+body.body {
   background-color: $bg-clr;
+
+  font-family: 'Jost', sans-serif;
 
   button {
     border: none;
 
     background-color: transparent;
-  }
-
-  #root {
-    font-family: 'Jost', sans-serif;
   }
 
   .navbar-light {
