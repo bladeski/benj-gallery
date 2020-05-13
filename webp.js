@@ -1,17 +1,46 @@
-let imagemin = require("imagemin"),
-    webp = require("imagemin-webp"),
-    outputFolder = "./public/images",
-    PNGImages = "./public/images/*.png",
-    JPEGImages = "./public/images/*.jpg";
+const imagemin = require('imagemin'),
+    imageminMozjpeg = require('imagemin-mozjpeg'),
+    pngToJpeg = require('png-to-jpeg'),
+    webp = require('imagemin-webp'),
+    fs = require('fs'),
+    outputFolder = './public/images',
+    pngImages = './src/data/images/*.png',
+    jpgImages = './src/data/images/*.jpg';
 
-imagemin([PNGImages], outputFolder, {
-    plugins: [webp({
-        loassless: true
-    })]
+imagemin([jpgImages], {
+    destination: outputFolder,
+    plugins: [
+        imageminMozjpeg({
+            quality: 60,
+        }),
+    ],
 });
 
-imagemin([JPEGImages], outputFolder, {
-    plugins: [webp({
-        quality: 65
-    })]
+imagemin([pngImages], {
+    destination: outputFolder,
+    plugins: [
+        pngToJpeg({
+            quality: 60,
+        }),
+    ],
+}).then((files) => {
+    return new Promise((rej, res) => {
+        files.forEach((file) => {
+            const newPath =
+                file.destinationPath.substr(
+                    0,
+                    file.destinationPath.lastIndexOf('.')
+                ) + '.jpg';
+            fs.rename(file.destinationPath, newPath, (e) => e && rej(e));
+        });
+    });
+}).catch(e => console.log(e));
+
+imagemin([jpgImages, pngImages], {
+    destination: outputFolder,
+    plugins: [
+        webp({
+            quality: 60,
+        }),
+    ],
 });
