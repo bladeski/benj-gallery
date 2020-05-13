@@ -3,7 +3,6 @@
         "node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/5cc1ee9b-a365-4ab7-90ee-9f93cedeb905/resourceGroups/Benjamins-Gallery/providers/Microsoft.Web/sites/benjaminart",
     "appService.deploySubpath": "",
-    "appService.preDeployTask": "npm install && npm run build"
+    "appService.postDeployTask": "npm install && npm run build"
 }
