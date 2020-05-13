@@ -1,133 +1,58 @@
-import React, { useState } from 'react'
-import { Container } from 'react-bootstrap'
-import ImageModal from './ImageModal'
-import chutki from '../img/chutki.webp'
-import flower from '../img/flower.webp'
-import girl1 from '../img/girl1.webp'
-import girl2 from '../img/girl2.webp'
-import girl3 from '../img/girl3.webp'
-import girl4 from '../img/girl4.webp'
-import krishna from '../img/krishna.webp'
-import restaurant from '../img/restaurant.webp'
-import ship from '../img/ship.webp'
-import sofia from '../img/sofia.webp'
-import village1 from '../img/village1.webp'
-import village2 from '../img/village2.webp'
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import ImageModal from './ImageModal';
 
-const Art = () => {
-	const[one, setOne] = useState(false)
-	const handleOne = () => setOne(true)
-	const handleNoOne = () => setOne(false)
+import images from '../data/images.json';
+import Image from './Image';
 
-	const[two, setTwo] = useState(false)
-	const handleTwo = () => setTwo(true)
-	const handleNoTwo = () => setTwo(false)
+class Art extends React.Component {
+    /**
+     * @inheritdoc
+     */
+    constructor(props) {
+        super(props);
 
-	const[three, setThree] = useState(false)
-	const handleThree = () => setThree(true)
-	const handleNoThree = () => setThree(false)
+        this.state = {
+            images: images.map(image => {
+                return {
+                    ...image,
+                    imagePath: 'images/'
+                }
+            }),
+            displayModal: false,
+            selectedImage: null
+        };
+    }
 
-	const[four, setFour] = useState(false)
-	const handleFour = () => setFour(true)
-	const handleNoFour = () => setFour(false)
+    render() {
+        return (
+            <div className='Art'>
+                <Container fluid>
+                    {this.state.images.map((image, index) => (
+                        <Image key={index} image={image} onClickImage={this.handleImageClick.bind(this)}></Image>
+                    ))}
+                    <ImageModal
+                        image={this.state.selectedImage}
+                        show={this.state.displayModal}
+                        Close={this.onCloseModal.bind(this)}
+                    />
+                </Container>
+            </div>
+        );
+    }
 
-	const[five, setFive] = useState(false)
-	const handleFive = () => setFive(true)
-	const handleNoFive = () => setFive(false)
+    handleImageClick(image) {
+        this.setState({
+            displayModal: true,
+            selectedImage: image
+        });
+    }
 
-	const[six, setSix] = useState(false)
-	const handleSix = () => setSix(true)
-	const handleNoSix = () => setSix(false)
-
-	const[seven, setSeven] = useState(false)
-	const handleSeven = () => setSeven(true)
-	const handleNoSeven = () => setSeven(false)
-
-	const[eight, setEight] = useState(false)
-	const handleEight = () => setEight(true)
-	const handleNoEight = () => setEight(false)
-
-	const[nine, setNine] = useState(false)
-	const handleNine = () => setNine(true)
-	const handleNoNine = () => setNine(false)
-
-	const[ten, setTen] = useState(false)
-	const handleTen = () => setTen(true)
-	const handleNoTen = () => setTen(false)
-
-	const[eleven, setEleven] = useState(false)
-	const handleEleven = () => setEleven(true)
-	const handleNoEleven = () => setEleven(false)
-
-	const[twelve, setTwelve] = useState(false)
-	const handleTwelve = () => setTwelve(true)
-	const handleNoTwelve = () => setTwelve(false)
-
-	return (
-		<center className="Art">
-			<Container fluid>
-				<article className="Image-Container">
-					<img src={village1} alt="Village Sketch" onClick={handleOne}/>
-					<ImageModal id="one" src={village1} show={one} Close={handleNoOne}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={flower} alt="Flower Sketch" onClick={handleTwo}/>
-					<ImageModal id="two" src={flower} show={two} Close={handleNoTwo}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={village2} alt="Village forest Sketch" onClick={handleThree}/>
-					<ImageModal id="three" src={village2} show={three} Close={handleNoThree}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={restaurant} alt="Restaurant Sketch" onClick={handleFour}/>
-					<ImageModal id="four" src={restaurant} show={four} Close={handleNoFour}/>
-				</article>
-			
-				<article className="Image-Container">
-					<img src={girl2} alt="Girl Sketch" onClick={handleFive}/>
-					<ImageModal id="five" src={girl2} show={five} Close={handleNoFive}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={girl4} alt="Girl Sketch" onClick={handleSix}/>
-					<ImageModal id="six" src={girl4} show={six} Close={handleNoSix}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={girl1} alt="Girl Sketch" onClick={handleSeven}/>
-					<ImageModal id="seven" src={girl1} show={seven} Close={handleNoSeven}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={girl3} alt="Girl Sketch" onClick={handleEight}/>
-					<ImageModal id="eight" src={girl3} show={eight} Close={handleNoEight}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={sofia} alt="Sofia Sketch" onClick={handleNine}/>
-					<ImageModal id="nine" src={sofia} show={nine} Close={handleNoNine}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={ship} alt="Ship Sketch" onClick={handleTen}/>
-					<ImageModal id="ten" src={ship} show={ten} Close={handleNoTen}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={krishna} alt="Lord krishna Sketch" onClick={handleEleven}/>
-					<ImageModal id="eleven" src={krishna} show={eleven} Close={handleNoEleven}/>
-				</article>
-
-				<article className="Image-Container">
-					<img src={chutki} alt="Chota beam Chutki Sketch" onClick={handleTwelve}/>
-					<ImageModal id="twelve" src={chutki} show={twelve} Close={handleNoTwelve}/>
-				</article>
-			</Container>
-		</center>
-	)
+    onCloseModal() {
+        this.setState({
+            displayModal: false,
+        });
+    }
 }
 
 export default Art;

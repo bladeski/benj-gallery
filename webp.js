@@ -1,8 +1,8 @@
 let imagemin = require("imagemin"),
     webp = require("imagemin-webp"),
-    outputFolder = "./src/img",
-    PNGImages = "./src/img/*.png",
-    JPEGImages = "./src/img/*.jpg";
+    outputFolder = "./public/images",
+    PNGImages = "./public/images/*.png",
+    JPEGImages = "./public/images/*.jpg";
 
 imagemin([PNGImages], outputFolder, {
     plugins: [webp({
