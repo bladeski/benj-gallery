@@ -6,7 +6,7 @@ const imagemin = require('imagemin'),
     outputFolder = './public/images',
     pngImages = './src/data/images/*.png',
     jpgImages = './src/data/images/*.jpg',
-    quality = 50;
+    quality = 30;
 
 imagemin([jpgImages], {
     destination: outputFolder,
