@@ -14,33 +14,51 @@ imagemin([jpgImages], {
             quality: 30,
         }),
     ],
-});
+})
+    .then(() =>
+        imagemin([pngImages], {
+            destination: outputFolder,
+            plugins: [
+                pngToJpeg({
+                    quality: 30,
+                }),
+            ],
+        })
+    )
+    .then((files) => {
+        return new Promise((res, rej) => {
+            if (files.length === 0 || !files) {
+                res();
+                return;
+            }
 
-imagemin([pngImages], {
-    destination: outputFolder,
-    plugins: [
-        pngToJpeg({
-            quality: 30,
-        }),
-    ],
-}).then((files) => {
-    return new Promise((rej, res) => {
-        files.forEach((file) => {
-            const newPath =
-                file.destinationPath.substr(
-                    0,
-                    file.destinationPath.lastIndexOf('.')
-                ) + '.jpg';
-            fs.rename(file.destinationPath, newPath, (e) => e && rej(e));
+            let counter = 0;
+            files.forEach((file) => {
+                const newPath =
+                    file.destinationPath.substr(
+                        0,
+                        file.destinationPath.lastIndexOf('.')
+                    ) + '.jpg';
+                fs.rename(file.destinationPath, newPath, (e) => {
+                    e && rej(e);
+                    counter++;
+                    console.log(counter);
+                    console.log(files.length);
+                    if (counter === files.length) {
+                        res();
+                    }
+                });
+            });
         });
-    });
-}).catch(e => console.log(e));
-
-imagemin([jpgImages, pngImages], {
-    destination: outputFolder,
-    plugins: [
-        webp({
-            quality: 30,
-        }),
-    ],
-});
+    })
+    .then(() =>
+        imagemin([jpgImages, pngImages], {
+            destination: outputFolder,
+            plugins: [
+                webp({
+                    quality: 30,
+                }),
+            ],
+        })
+    )
+    .catch((e) => console.log(e));
