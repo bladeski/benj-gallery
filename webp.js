@@ -5,13 +5,14 @@ const imagemin = require('imagemin'),
     fs = require('fs'),
     outputFolder = './public/images',
     pngImages = './src/data/images/*.png',
-    jpgImages = './src/data/images/*.jpg';
+    jpgImages = './src/data/images/*.jpg',
+    quality = 50;
 
 imagemin([jpgImages], {
     destination: outputFolder,
     plugins: [
         imageminMozjpeg({
-            quality: 30,
+            quality: quality,
         }),
     ],
 })
@@ -20,7 +21,7 @@ imagemin([jpgImages], {
             destination: outputFolder,
             plugins: [
                 pngToJpeg({
-                    quality: 30,
+                    quality: quality,
                 }),
             ],
         })
@@ -56,7 +57,7 @@ imagemin([jpgImages], {
             destination: outputFolder,
             plugins: [
                 webp({
-                    quality: 30,
+                    quality: quality,
                 }),
             ],
         })
