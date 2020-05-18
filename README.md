@@ -1,6 +1,6 @@
-# Varshu's Art
+# Benjamin's Art
 
-> A React based web application for displaying the art gallery of my sister - Jaya Varshini (https://jayavarshini.herokuapp.com/)
+> A React based web application for displaying the art gallery of Benjamin Blades
 
 ## Tech Stack
 - HTML
@@ -20,12 +20,6 @@ npm install
 ```
 npm start
 ```
-## What I Used
-* [Visual Studio Code](https://code.visualstudio.com/) - A more than everything text editor
-* [Heroku Apps](https://www.heroku.com/home) - Deploy with ease
-* [SASS](https://sass-lang.com/) - The Syntactically AWESOME guy
-* [Google Fonts](https://fonts.google.com/) - Collection of beautiful fonts
-* [Webp Images](https://developers.google.com/speed/webp/) - Such a light-weight images
 
 ## Directory Information
 ```
