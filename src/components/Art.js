@@ -38,7 +38,7 @@ class Art extends React.Component {
             images: images.map((image) => {
                 return {
                     ...image,
-                    imagePath: 'https://benjaminsart.blob.core.windows.net/images/',
+                    imagePath: 'https://benjaminsart.azureedge.net/images/',
                 };
             }),
             filter: filter,
