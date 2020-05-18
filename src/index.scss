@@ -75,49 +75,64 @@ body.body {
   .Art {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: max-content;
+    width: 100%;
     max-width: 100%;
+    max-width: fit-content;
     padding-top: 2em;
+
+    text-align: center;
 
     &:hover {
       .Image-Container {
         &:hover {
-          img {
+          img.gallery-image {
             opacity: 1;
           }
         }
 
-        img {
+        img.gallery-image {
           opacity: .5;
         }
       }
     }
 
-    .container-fluid {
-      width: 100%;
-      max-width: fit-content;
+    .Image-Container {
+      margin-bottom: 1em;
 
-      text-align: center;
-
-      article {
-        display: contents;
+      &.hide {
+        display: none;
       }
 
-      .Image-Container {
-        img {
-          height: 315px;
-          margin: 5px;
+      img.gallery-image {
+        height: 315px;
+        margin: 5px;
 
-          box-shadow: 2px 2px 1px 1px rgba(50, 50, 50, .5);
-        }
+        box-shadow: 2px 2px 1px 1px rgba(50, 50, 50, .5);
+      }
 
-        &:hover {
-          img {
-            cursor: pointer;
-          }
+      &:hover {
+        img.gallery-image {
+          cursor: pointer;
         }
+      }
+
+      .tag-container {
+        display: flex;
+      }
+
+      .tags {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        width: 0;
+        margin: 0 5px;
+
+        text-align: right;
       }
     }
   }
@@ -132,6 +147,12 @@ body.body {
 
         .modal-header {
           border-bottom: 0 solid #dee2e6;
+
+          .image-date {
+            font-size: .7em;
+
+            opacity: .8;
+          }
         }
 
         .modal-body {
@@ -149,9 +170,48 @@ body.body {
         }
 
         .modal-footer {
+          display: flex;
+          flex-flow: column;
           justify-content: center;
         }
       }
     }
+  }
+}
+
+.filter.tags {
+  flex-grow: 1;
+  margin-bottom: 1em;
+
+  .tag {
+    font-size: 1em;
+  }
+}
+
+.tags {
+  width: 100%;
+
+  text-align: right;
+
+  &.filter {
+    text-align: center;
+  }
+
+  .tag {
+    border: 1px solid transparent;
+
+    background-color: transparent;
+
+    font-size: .8em;
+
+    &.selected {
+      border: 1px solid;
+    }
+  }
+
+  .tag-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
   }
 }

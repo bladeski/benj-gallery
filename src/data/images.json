@@ -2,46 +2,68 @@
     {
         "name": "Mosaic Pirate",
         "description": "This is a mosaic of a pirate that I made with Gran.",
-        "filename": "IMG_1791"
+        "filename": "IMG_1791",
+        "date": "May 2020",
+        "tags": ["pirate", "mosaic", "gran"]
     },{
         "name": "Furcorn",
         "description": "This is a picture of Furcorn from 'My Singing Monsters' that I made for Gran.",
-        "filename": "IMG_1792"
+        "filename": "IMG_1792",
+        "date": "May 2020",
+        "tags": ["monster", "drawing", "gran", "eyes"]
     },{
         "name": "Monster Peacock Pirate",
         "description": "This is a picture of a monster peacock pirate that I made for Grampa.",
-        "filename": "IMG_1793"
+        "filename": "IMG_1793",
+        "date": "May 2020",
+        "tags": ["monster", "drawing", "grampa", "pirate", "feathers", "eyes"]
     },{
         "name": "Suncatcher",
         "description": "This is a letter 'B' suncatcher that I painted.",
-        "filename": "IMG_1794"
+        "filename": "IMG_1794",
+        "date": "May 2020",
+        "tags": ["suncatcher", "paint", "letter"]
     },{
         "name": "Rainbow",
         "description": "This is a picture of a rainbow from the olden days.",
-        "filename": "IMG_1795"
+        "filename": "IMG_1795",
+        "date": "May 2020",
+        "tags": ["rainbow", "drawing"]
     },{
         "name": "Monster",
         "description": "This is a monster that I drew with Mummy.",
-        "filename": "IMG_1796"
+        "filename": "IMG_1796",
+        "date": "May 2020",
+        "tags": ["monster", "drawing", "mummy"]
     },{
         "name": "Mummy's Monster",
         "description": "This is a picture of a monster that Mummy made for my gallery.",
-        "filename": "IMG_1797"
+        "filename": "IMG_1797",
+        "date": "May 2020",
+        "tags": ["monster", "drawing", "mummy", "eyes"]
     },{
         "name": "Ultra Rare Treasure Map",
         "description": "This is a treasure map that I made.",
-        "filename": "IMG_1798"
+        "filename": "IMG_1798",
+        "date": "May 2020",
+        "tags": ["treasure", "drawing", "map"]
     },{
         "name": "Monster Jam",
         "description": "This is a picture of a monster band called Monster Jam that I drew with Mummy.",
-        "filename": "IMG_1799"
+        "filename": "IMG_1799",
+        "date": "May 2020",
+        "tags": ["monster", "music", "drawing", "mummy"]
     },{
         "name": "Monster",
         "description": "This is a picture of a monster with one eye and a big mouth that I drew with Mummy.",
-        "filename": "IMG_1800"
+        "filename": "IMG_1800",
+        "date": "May 2020",
+        "tags": ["monster", "drawing", "mummy", "eyes", "mouth"]
     },{
         "name": "Picture for Daddy",
         "description": "This is a picture that I drew for Daddy.",
-        "filename": "IMG_1801"
+        "filename": "IMG_1801",
+        "date": "May 2020",
+        "tags": ["hands", "drawing", "daddy"]
     }
 ]
