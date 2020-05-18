@@ -32,4 +32,4 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         # Tag text
-        tag: photo-update-${{ GITHUB_ACTION }}
+        tag: photo-update-${{ env.GITHUB_ACTION }}
