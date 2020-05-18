@@ -30,6 +30,6 @@ jobs:
     - name: Commit tagger
       uses: tvdias/github-tagger@v0.0.2
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         # Tag text
         tag: photo-update-$GITHUB_ACTION
